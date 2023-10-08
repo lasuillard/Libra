@@ -28,7 +28,7 @@ Requirement:
 - [Visual Studio Code](https://code.visualstudio.com/)
 
   VS Code Development Container provides rich features such as git and GnuPG configuration forwarding. But they sometimes require you to install some tools based on your device. Please check [this](https://code.visualstudio.com/docs/remote/containers#_sharing-git-credentials-with-your-container).
- 
+
 As container itself configured to include all required tools, there's no extra tools required.
 
 1. Install VS Code extension [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
