@@ -1,0 +1,73 @@
+default_stages: [commit]
+fail_fast: true
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+
+  - repo: local
+    hooks:
+      # Formatters
+      - id: cargo-fmt
+        name: Format Rust codes
+        language: system
+        types: [rust]
+        entry: cargo fmt
+        args: [--]
+
+      - id: prettier
+        name: Format Node.js, JSON and YAML codes
+        language: system
+        types_or: [javascript, ts, svelte, json, yaml]
+        entry: pnpm exec prettier
+        args: [--write]
+
+      # Linters
+      - id: cargo-clippy
+        name: Lint Rust codes
+        language: system
+        types: [rust]
+        pass_filenames: false
+        entry: cargo clippy
+        args: []
+
+      - id: eslint
+        name: Lint Node.js codes
+        language: system
+        types_or: [javascript, ts, svelte]
+        entry: pnpm exec eslint
+        args: []
+
+      - id: typescript
+        name: Check Node.js types
+        language: system
+        types_or: [javascript, ts, svelte]
+        pass_filenames: false
+        entry: pnpm exec tsc
+        args: [--noEmit]
+
+      # Scanners
+      - id: checkov
+        name: Run Checkov scanner
+        language: system
+        types: [file]
+        entry: checkov
+        args: [--quiet, --file]
+
+      # Tests
+      - id: cargo-nextest
+        name: Test Rust codes
+        language: system
+        types: [rust]
+        pass_filenames: false
+        entry: cargo nextest run
+        args: [--workspace]
+
+      - id: vitest
+        name: Test Node.js codes
+        language: system
+        types_or: [javascript, ts, svelte]
+        pass_filenames: false
+        entry: pnpm run test

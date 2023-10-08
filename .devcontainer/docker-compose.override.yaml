@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  workspace:
+    build:
+      args:
+        WORKSPACE: /workspaces/Libra
+    volumes:
+      - .:/workspaces/Libra
+    healthcheck:
+      disable: true
