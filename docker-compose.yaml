@@ -11,6 +11,7 @@ services:
       CONTAINER: 1
       RUST_BACKTRACE: 1
       OTEL_SDK_DISABLED: 'true'
+      OTEL_SERVICE_NAME: 'Libra'
       DATABASE_URL: sqlite://db.sqlite3
     command: sleep infinity
     init: true
