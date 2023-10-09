@@ -155,13 +155,14 @@ jobs:
 
   build:
     name: Build
-    needs: e2e
     strategy:
       fail-fast: false
       matrix:
         platform: [ubuntu-latest, windows-latest]
 
     runs-on: ${{ matrix.platform }}
+    timeout-minutes: 30
+    needs: e2e
     env:
       # FIXME: `tauri-apps/tauri-action` looks for build artifacts relative to Tauri app dir, not workspace
       CARGO_BUILD_TARGET_DIR: '${{ github.workspace }}/core/app/target'
