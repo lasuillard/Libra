@@ -7,11 +7,11 @@ File explorer to manage your files in structured, organized and automated way.
 
 ## 🧰 Tech Stack
 
-- **Language** Rust Nightly + Node 20.x
+-   **Language** Rust Nightly + Node 20.x
 
-- **Framework** [Tauri](https://tauri.app/) + [SvelteKit](https://kit.svelte.dev/)
+-   **Framework** [Tauri](https://tauri.app/) + [SvelteKit](https://kit.svelte.dev/)
 
-- **CI·CD** GitHub Actions
+-   **CI·CD** GitHub Actions
 
 ## ⚙️ Getting Started
 
@@ -21,13 +21,13 @@ This section describes how to set your local development environments up.
 
 Requirement:
 
-- [Docker](https://www.docker.com/)
+-   [Docker](https://www.docker.com/)
 
-  To configure other dependent services like database, we use Docker (mainly [Docker Compose](https://docs.docker.com/compose/)).
+    To configure other dependent services like database, we use Docker (mainly [Docker Compose](https://docs.docker.com/compose/)).
 
-- [Visual Studio Code](https://code.visualstudio.com/)
+-   [Visual Studio Code](https://code.visualstudio.com/)
 
-  VS Code Development Container provides rich features such as git and GnuPG configuration forwarding. But they sometimes require you to install some tools based on your device. Please check [this](https://code.visualstudio.com/docs/remote/containers#_sharing-git-credentials-with-your-container).
+    VS Code Development Container provides rich features such as git and GnuPG configuration forwarding. But they sometimes require you to install some tools based on your device. Please check [this](https://code.visualstudio.com/docs/remote/containers#_sharing-git-credentials-with-your-container).
 
 As container itself configured to include all required tools, there's no extra tools required.
 
