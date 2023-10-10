@@ -88,6 +88,8 @@ VOLUME ["${WORKSPACE}/target", "${WORKSPACE}/node_modules"]
 # Remove existing GPG as it interrupts GPG injection by devcontainer
 RUN rm -rf ~/.gnupg
 
+RUN git config --system --add safe.directory "${WORKSPACE}"
+
 # Gtk-WARNING **: Locale not supported by C library ...
 ENV LC_ALL=C.utf8
 

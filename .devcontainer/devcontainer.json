@@ -1,7 +1,7 @@
 {
 	"name": "lasuillard/Libra",
 	"dockerComposeFile": ["../docker-compose.yaml", "./docker-compose.override.yaml"],
-	"runServices": ["workspace"],
+	"runServices": ["workspace", "novnc"],
 	"service": "workspace",
 	"overrideCommand": true,
 	"initializeCommand": "./.devcontainer/initializeCommand.sh",

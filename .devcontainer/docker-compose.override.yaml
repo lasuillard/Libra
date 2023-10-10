@@ -7,5 +7,16 @@ services:
         WORKSPACE: /workspaces/Libra
     volumes:
       - .:/workspaces/Libra
+    environment:
+      DISPLAY: novnc:0.0
     healthcheck:
       disable: true
+
+  novnc:
+    image: theasp/novnc:latest
+    environment:
+      DISPLAY_WIDTH: '1600'
+      DISPLAY_HEIGHT: '968'
+      RUN_XTERM: 'no'
+    ports:
+      - 8080:8080
