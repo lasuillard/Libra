@@ -42,40 +42,26 @@ run:  ## Run development application
 # =============================================================================
 # CI
 # =============================================================================
-ci: generate lint scan test benchmark e2e-test  ## Run CI tasks
+ci: generate web-ci core-ci e2e-test  ## Run CI tasks
 .PHONY: ci
 
-generate:  ## Generate stubs
-	pnpm exec svelte-kit sync
+generate: web-generate core-generate  ## Generate stubs
 .PHONY: generate
 
-format:  ## Run autoformatters
-	cargo fmt
-	cargo clippy --fix --allow-dirty --allow-staged --allow-no-vcs
-	pnpm exec prettier --list-different --write .
-	pnpm exec eslint --fix .
+format: web-format core-format  ## Run autoformatters
 .PHONY: format
 
-lint: generate  ## Run linters
-	cargo fmt --check
-	cargo clippy
-	pnpm exec prettier --check .
-	pnpm exec eslint .
-	pnpm exec tsc --noEmit
+lint: generate web-lint core-lint  ## Run linters
 .PHONY: lint
 
-scan:  ## Run scans
+scan: web-scan core-scan  ## Run scans
 	checkov --quiet --directory .
 .PHONY: scan
 
-test: generate ## Run tests
-	cargo llvm-cov nextest --workspace --lcov --output-path lcov.info \
-		&& cargo llvm-cov report --summary-only
-	pnpm run test
+test: generate web-test core-test  ## Run tests
 .PHONY: test
 
-benchmark:  ## Run benchmarks
-	cargo bench --workspace
+benchmark: web-benchmark core-benchmark  ## Run benchmarks
 .PHONY: benchmark
 
 e2e-test:  ## Run e2e tests

@@ -19,7 +19,8 @@
 	"files.associations": {
 		"**.css": "tailwindcss",
 		".devcontainer/docker-compose.override.yaml": "dockercompose",
-		".ignore": "ignore" // Ignore file used by `cargo-watch`,
+		".ignore": "ignore", // Ignore file used by `cargo-watch`,
+		"Makefile.*": "makefile"
 	},
 	"files.eol": "\n",
 	"files.insertFinalNewline": true,

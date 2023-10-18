@@ -1,0 +1,29 @@
+web-ci: web-generate web-lint web-scan web-test web-benchmark  ## Run CI tasks
+.PHONY: web-ci
+
+web-generate:  ## Generate stubs
+	pnpm exec svelte-kit sync
+.PHONY: web-generate
+
+web-format:  ## Run autoformatters
+	pnpm exec prettier --list-different --write .
+	pnpm exec eslint --fix .
+.PHONY: web-format
+
+web-lint: generate  ## Run linters
+	pnpm exec prettier --check .
+	pnpm exec eslint .
+	pnpm exec tsc --noEmit
+.PHONY: web-lint
+
+web-scan:  ## Run scans
+
+.PHONY: web-scan
+
+web-test: generate ## Run tests
+	pnpm run test
+.PHONY: web-test
+
+web-benchmark:  ## Run benchmarks
+
+.PHONY: web-benchmark
