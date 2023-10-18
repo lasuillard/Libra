@@ -2,7 +2,3 @@
 members = ["core/*"]
 default-members = ["core/cli"]
 resolver = "2"
-
-# TODO: Revert following patch once it is released; https://github.com/time-rs/time/issues/618
-[patch.crates-io]
-time = { git = "https://github.com/time-rs/time", branch = "main" }
