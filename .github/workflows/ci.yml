@@ -153,8 +153,9 @@ jobs:
           cargo build --release
           xvfb-run pnpm run e2e
 
-  build:
-    name: Build
+  build-and-release:
+    name: Build and Release
+    if: startsWith(github.ref, 'refs/tags/v') # v*
     strategy:
       fail-fast: false
       matrix:
@@ -174,6 +175,7 @@ jobs:
       - name: Set up Rust
         run: rustup show
 
+      # TODO: Share release build cache with E2E
       - name: Manage Rust cache
         uses: Swatinem/rust-cache@v2
         with:
@@ -199,7 +201,8 @@ jobs:
       - name: Install PNPM deps
         run: pnpm install
 
-      - name: Build Tauri app
+      - name: Build and release Tauri app
         uses: tauri-apps/tauri-action@v0
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          tagName: v__VERSION__
+          releaseName: v__VERSION__
