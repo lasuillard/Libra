@@ -42,9 +42,9 @@ jobs:
           tool: cargo-binstall,cargo-llvm-cov,cargo-nextest
 
       - name: Install Linux dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y libgtk-3-dev libwebkit2gtk-4.0-dev libappindicator3-dev librsvg2-dev patchelf
+        uses: awalsh128/cache-apt-pkgs-action@v1
+        with:
+          packages: libgtk-3-dev libwebkit2gtk-4.0-dev libappindicator3-dev librsvg2-dev patchelf
 
       - name: Check code formatting
         run: cargo fmt --check
@@ -128,9 +128,9 @@ jobs:
           tool: cargo-binstall,tauri-driver
 
       - name: Install Linux dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y libgtk-3-dev libwebkit2gtk-4.0-dev libappindicator3-dev librsvg2-dev patchelf webkit2gtk-driver xauth xvfb
+        uses: awalsh128/cache-apt-pkgs-action@v1
+        with:
+          packages: libgtk-3-dev libwebkit2gtk-4.0-dev libappindicator3-dev librsvg2-dev patchelf
 
       - name: Set up PNPM
         uses: pnpm/action-setup@v2
@@ -183,11 +183,11 @@ jobs:
         with:
           cache-directories: ${{ env.CARGO_BUILD_TARGET_DIR }}
 
-      - name: install Linux dependencies
+      - name: Install Linux dependencies
+        uses: awalsh128/cache-apt-pkgs-action@v1
         if: matrix.platform == 'ubuntu-latest'
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y libgtk-3-dev libwebkit2gtk-4.0-dev libappindicator3-dev librsvg2-dev patchelf
+        with:
+          packages: libgtk-3-dev libwebkit2gtk-4.0-dev libappindicator3-dev librsvg2-dev patchelf
 
       - name: Set up PNPM
         uses: pnpm/action-setup@v2
