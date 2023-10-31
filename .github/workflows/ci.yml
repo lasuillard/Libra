@@ -35,6 +35,8 @@ jobs:
 
       - name: Manage Rust cache
         uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: src-tauri -> target
 
       - name: Install devtools
         uses: taiki-e/install-action@v2
@@ -124,6 +126,8 @@ jobs:
 
       - name: Manage Rust cache
         uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: src-tauri -> target
 
       - name: Install devtools
         uses: taiki-e/install-action@v2
@@ -175,12 +179,6 @@ jobs:
 
       - name: Set up Rust
         run: rustup show
-
-      # TODO: Share release build cache with E2E
-      - name: Manage Rust cache
-        uses: Swatinem/rust-cache@v2
-        with:
-          cache-directories: src-tauri/target
 
       - name: install Linux dependencies
         if: matrix.platform == 'ubuntu-latest'
