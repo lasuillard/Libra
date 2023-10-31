@@ -33,7 +33,7 @@
 		"**/target/**": true
 	},
 	"json.format.enable": false,
-	"rust-analyzer.linkedProjects": ["./Cargo.toml"],
+	"rust-analyzer.linkedProjects": ["./src-tauri/Cargo.toml"],
 	"svelte.enable-ts-plugin": true,
 	"yaml.format.enable": true
 }
