@@ -21,9 +21,6 @@ on:
 
 permissions: read-all
 
-env:
-  CARGO_INCREMENTAL: 0
-
 jobs:
   core:
     name: Core
@@ -37,16 +34,7 @@ jobs:
         run: rustup show
 
       - name: Manage Rust cache
-        uses: actions/cache@v3
-        with:
-          key: rust-cache-${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
-          restore-keys: rust-cache-${{ runner.os }}-cargo-
-          path: |
-            ~/.cargo/bin/
-            ~/.cargo/registry/index/
-            ~/.cargo/registry/cache/
-            ~/.cargo/git/db/
-            src-tauri/target/
+        uses: Swatinem/rust-cache@v2
 
       - name: Install devtools
         uses: taiki-e/install-action@v2
@@ -135,16 +123,7 @@ jobs:
         run: rustup show
 
       - name: Manage Rust cache
-        uses: actions/cache@v3
-        with:
-          key: rust-cache-${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
-          restore-keys: rust-cache-${{ runner.os }}-cargo-
-          path: |
-            ~/.cargo/bin/
-            ~/.cargo/registry/index/
-            ~/.cargo/registry/cache/
-            ~/.cargo/git/db/
-            src-tauri/target/
+        uses: Swatinem/rust-cache@v2
 
       - name: Install devtools
         uses: taiki-e/install-action@v2
@@ -196,6 +175,12 @@ jobs:
 
       - name: Set up Rust
         run: rustup show
+
+      # TODO: Share release build cache with E2E
+      - name: Manage Rust cache
+        uses: Swatinem/rust-cache@v2
+        with:
+          cache-directories: src-tauri/target
 
       - name: install Linux dependencies
         if: matrix.platform == 'ubuntu-latest'
