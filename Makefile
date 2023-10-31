@@ -64,7 +64,7 @@ benchmark: web-benchmark core-benchmark  ## Run benchmarks
 .PHONY: benchmark
 
 e2e-test:  ## Run e2e tests
-	cd src-tauri && cargo build --release
+	cd src-tauri && cargo build --release && cd -
 	xvfb-run pnpm run e2e
 .PHONY: e2e-test
 
