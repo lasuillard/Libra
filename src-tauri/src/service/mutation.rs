@@ -1,5 +1,6 @@
-use ::entity::{resource, resource::Entity as Resource};
 use sea_orm::*;
+
+use crate::entity::{resource, resource::Entity as Resource};
 
 pub struct Mutation;
 

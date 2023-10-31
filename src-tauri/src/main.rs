@@ -1,7 +1,6 @@
-mod cli;
 use anyhow::Result;
 
 #[tokio::main]
 async fn main() -> Result<()> {
-    cli::execute().await
+    app::cli::execute().await
 }

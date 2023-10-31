@@ -6,11 +6,13 @@ core-generate:  ## Generate stubs
 .PHONY: core-generate
 
 core-format:  ## Run autoformatters
+	cd src-tauri
 	cargo fmt
 	cargo clippy --fix --allow-dirty --allow-staged --allow-no-vcs
 .PHONY: core-format
 
 core-lint: generate  ## Run linters
+	cd src-tauri
 	cargo fmt --check
 	cargo clippy
 .PHONY: core-lint
@@ -20,10 +22,12 @@ core-scan:  ## Run scans
 .PHONY: core-scan
 
 core-test: generate ## Run tests
+	cd src-tauri
 	cargo llvm-cov nextest --workspace --lcov --output-path lcov.info \
 		&& cargo llvm-cov report --summary-only
 .PHONY: core-test
 
 core-benchmark:  ## Run benchmarks
+	cd src-tauri
 	cargo bench --workspace
 .PHONY: core-benchmark

@@ -30,10 +30,10 @@
 		"build/**": true,
 		"db.sqlite3": true,
 		"node_modules/**": true,
-		"target/**": true
+		"**/target/**": true
 	},
 	"json.format.enable": false,
-	"rust-analyzer.linkedProjects": ["./Cargo.toml"],
+	"rust-analyzer.linkedProjects": ["./src-tauri/Cargo.toml"],
 	"svelte.enable-ts-plugin": true,
 	"yaml.format.enable": true
 }

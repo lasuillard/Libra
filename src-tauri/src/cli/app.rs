@@ -53,7 +53,7 @@ pub(super) async fn execute(_cli: &super::Cli, args: &Args) -> Result<()> {
     let meter_provider = init_metrics()?;
 
     // Run GUI application
-    app::run();
+    crate::run();
 
     // Graceful shutdown
     global::shutdown_tracer_provider();

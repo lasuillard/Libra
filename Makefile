@@ -34,7 +34,6 @@ init:  ## Initialize project repository
 .PHONY: init
 
 run:  ## Run development application
-	dotenv sea migrate --migration-dir ./core/migration
 	dotenv cargo tauri dev
 .PHONY: run
 
@@ -65,7 +64,7 @@ benchmark: web-benchmark core-benchmark  ## Run benchmarks
 .PHONY: benchmark
 
 e2e-test:  ## Run e2e tests
-	cargo build --release
+	cd src-tauri && cargo build --release && cd -
 	xvfb-run pnpm run e2e
 .PHONY: e2e-test
 

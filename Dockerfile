@@ -83,7 +83,7 @@ RUN corepack enable && pnpm config set store-dir ~/.local/share/pnpm/store
 COPY .npmrc package.json pnpm-lock.yaml ./
 RUN pnpm install --frozen-lockfile
 
-VOLUME ["${WORKSPACE}/target", "${WORKSPACE}/node_modules"]
+VOLUME ["${WORKSPACE}/src-tauri/target", "${WORKSPACE}/node_modules"]
 
 # Remove existing GPG as it interrupts GPG injection by devcontainer
 RUN rm -rf ~/.gnupg

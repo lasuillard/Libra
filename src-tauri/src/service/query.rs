@@ -1,5 +1,6 @@
-use ::entity::{resource, resource::Entity as Post};
 use sea_orm::*;
+
+use crate::entity::{resource, resource::Entity as Post};
 
 pub struct Query;
 
