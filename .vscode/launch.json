@@ -5,7 +5,7 @@
 			"type": "lldb",
 			"request": "launch",
 			"name": "Debug",
-			"program": "${workspaceRoot}/target/debug/libra",
+			"program": "${workspaceRoot}/src-tauri/target/debug/libra",
 			"env": {},
 			"args": ["--log-level", "debug", "run"],
 			"cwd": "${workspaceRoot}",

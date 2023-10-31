@@ -3,7 +3,8 @@ use opentelemetry::{global,
                     KeyValue};
 
 use crate::{config,
-            ipc::{error::IPCError, message::IPCMessage}};
+            ipc::{error::IPCError, message::IPCMessage},
+            service};
 
 /// Greet user.
 #[tauri::command]
