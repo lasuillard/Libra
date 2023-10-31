@@ -47,12 +47,15 @@ jobs:
           sudo apt-get install -y libgtk-3-dev libwebkit2gtk-4.0-dev libappindicator3-dev librsvg2-dev patchelf
 
       - name: Check code formatting
+        working-directory: src-tauri
         run: cargo fmt --check
 
       - name: Lint code
+        working-directory: src-tauri
         run: cargo clippy
 
       - name: Run tests
+        working-directory: src-tauri
         run: |
           cargo llvm-cov nextest --workspace --lcov --output-path lcov.info
           cargo llvm-cov report --summary-only
@@ -62,7 +65,7 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           fail_ci_if_error: false
-          files: lcov.info
+          files: src-tauri/lcov.info
           flags: unit
 
   web:
@@ -150,7 +153,7 @@ jobs:
         env:
           NO_AT_BRIDGE: 1
         run: |
-          cargo build --release
+          cd src-tauri && cargo build --release && cd -
           xvfb-run pnpm run e2e
 
   build-and-release:
@@ -166,10 +169,6 @@ jobs:
     needs: e2e
     permissions:
       contents: write
-    env:
-      # FIXME: `tauri-apps/tauri-action` looks for build artifacts relative to Tauri app dir, not workspace
-      CARGO_BUILD_TARGET_DIR: '${{ github.workspace }}/core/app/target'
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -181,7 +180,7 @@ jobs:
       - name: Manage Rust cache
         uses: Swatinem/rust-cache@v2
         with:
-          cache-directories: ${{ env.CARGO_BUILD_TARGET_DIR }}
+          cache-directories: src-tauri/target
 
       - name: install Linux dependencies
         if: matrix.platform == 'ubuntu-latest'

@@ -6,7 +6,7 @@ import { afterAll, beforeAll } from 'vitest';
 import waitOn from 'wait-on';
 
 // create the path to the expected application binary
-const application = path.resolve(__dirname, '..', 'target', 'release', 'libra');
+const application = path.resolve(__dirname, '..', 'src-tauri', 'target', 'release', 'libra');
 
 // Vite dev server
 let devServer: ChildProcess;
