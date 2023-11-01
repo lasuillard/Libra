@@ -30,7 +30,7 @@
 		"@opentelemetry/sdk-trace-web": "^1.17.1",
 		"@opentelemetry/semantic-conventions": "^1.17.1",
 		"@sveltejs/adapter-static": "^2.0.3",
-		"@sveltejs/kit": "^1.25.2",
+		"@sveltejs/kit": "^1.27.2",
 		"@tauri-apps/api": "^1.5.1",
 		"@types/selenium-webdriver": "^4.1.18",
 		"@types/wait-on": "^5.3.2",
