@@ -138,6 +138,7 @@ jobs:
         uses: awalsh128/cache-apt-pkgs-action@v1
         with:
           packages: libgtk-3-dev libwebkit2gtk-4.0-dev libappindicator3-dev librsvg2-dev patchelf
+          execute_install_scripts: true
 
       - name: Set up PNPM
         uses: pnpm/action-setup@v2
