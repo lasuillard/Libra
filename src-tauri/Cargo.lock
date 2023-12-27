@@ -156,7 +156,7 @@ dependencies = [
  "lazy_static",
  "log",
  "multi_log",
- "opentelemetry",
+ "opentelemetry 0.20.0",
  "opentelemetry-appender-log",
  "opentelemetry-otlp",
  "opentelemetry-semantic-conventions",
@@ -2499,13 +2499,29 @@ dependencies = [
 ]
 
 [[package]]
-name = "opentelemetry-appender-log"
-version = "0.1.0"
+name = "opentelemetry"
+version = "0.21.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6dd820844a1b8339c91bca25ac389411c1854d30a3e0a55576c2138e11a76ddf"
+checksum = "1e32339a5dc40459130b3bd269e9892439f55b33e772d2a9d402a789baaf4e8a"
+dependencies = [
+ "futures-core",
+ "futures-sink",
+ "indexmap 2.1.0",
+ "js-sys",
+ "once_cell",
+ "pin-project-lite",
+ "thiserror",
+ "urlencoding",
+]
+
+[[package]]
+name = "opentelemetry-appender-log"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "cbe26946fc0229668f45d8fabb570a6f5d61c6666612f24dd327100585c99512"
 dependencies = [
  "log",
- "opentelemetry_api",
+ "opentelemetry 0.21.0",
 ]
 
 [[package]]
@@ -2545,7 +2561,7 @@ version = "0.12.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "73c9f9340ad135068800e7f1b24e9e09ed9e7143f5bf8518ded3d3ec69789269"
 dependencies = [
- "opentelemetry",
+ "opentelemetry 0.20.0",
 ]
 
 [[package]]
@@ -4874,7 +4890,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "75327c6b667828ddc28f5e3f169036cb793c3f588d83bf0f262a7f062ffed3c8"
 dependencies = [
  "once_cell",
- "opentelemetry",
+ "opentelemetry 0.20.0",
  "opentelemetry_sdk",
  "smallvec",
  "tracing",
