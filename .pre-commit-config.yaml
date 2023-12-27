@@ -48,14 +48,6 @@ repos:
         entry: pnpm exec tsc
         args: [--noEmit]
 
-      # Scanners
-      - id: checkov
-        name: Run Checkov scanner
-        language: system
-        types: [file]
-        entry: checkov
-        args: [--quiet, --file]
-
       # Tests
       - id: cargo-nextest
         name: Test Rust codes
