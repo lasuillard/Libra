@@ -25,7 +25,7 @@ opentelemetry-appender-log = { version = "0.1.0", default-features = false }
 opentelemetry_sdk = { version = "0.20.0", features = ["logs", "metrics", "trace"] }
 simplelog = "0.12.1"
 multi_log = "0.1.2"
-opentelemetry-semantic-conventions = "0.12.0"
+opentelemetry-semantic-conventions = "0.13.0"
 tracing-subscriber = { version = "0.3.17", default-features = false, features = ["smallvec", "fmt", "ansi", "std"] }
 tracing-opentelemetry = "0.21.0"
 sea-orm = "0.12.2"
